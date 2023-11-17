@@ -53,10 +53,13 @@ options = {
     viewSize: { x: G.WIDTH, y: G.HEIGHT },
 };
 
+let isPressing;
+
 function update() {
     if (!ticks){
         const posX =  rnd(30, G.WIDTH - 10);
         const posY =  rnd(30, G.HEIGHT - 10);
+        isPressing = false;
         targetbox = {
             pos: vec(posX, posY)
         };
@@ -69,6 +72,10 @@ function update() {
         }
     }
 
+    if (input.isJustPressed){
+        isPressing = true;
+    }
+
     color('yellow');
     box(targetbox.pos, 8);
 
@@ -79,7 +86,8 @@ function update() {
 
     text(player.pos.x.toString(), 3, 10);
     text(targetbox.pos.x.toString(), 3, 20);
-    if ( (player.isGoingRight == true) && (input.isPressed) ){
+
+    if ( (player.isGoingRight == true) && (input.isPressed) && (isPressing) ){
         player.pos.x += player.speed;
     }
     else if ( (player.pos.x > 5) && (player.isGoingRight == true) ){
@@ -92,9 +100,9 @@ function update() {
     }
     else if ( (player.pos.y < G.HEIGHT - 5) && (player.isGoingUp == true) ){
         player.isGoingUp = false;
-        let diffx = abs(player.pos.x - targetbox.pos.x)
-        let diffy = abs(player.pos.y - targetbox.pos.y)
-        if ( (diffx <= 1.5 && diffx >= 0) && (diffy <= 1.5 && diffy >= 0) && (!input.isPressed) ){
+        let diffx = abs(player.pos.x - targetbox.pos.x);
+        let diffy = abs(player.pos.y - targetbox.pos.y);
+        if ( (diffx <= 2 && diffx >= 0) && (diffy <= 2 && diffy >= 0) && (!input.isPressed) ){
             player.isGoingRight = true;
             const posX =  rnd(10, G.WIDTH - 10);
             const posY =  rnd(10, G.HEIGHT - 10);
