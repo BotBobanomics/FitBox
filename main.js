@@ -1,4 +1,4 @@
-title = "Hit Box";
+title = "Fit Box";
 
 description = `
 [HOLD] 
@@ -112,6 +112,7 @@ function update() {
         }
     }
     else if ( (player.isGoingRight == false && player.isGoingUp == false) ){
+        text('Tap to reset', 20, 60);
         end();
     }
     
