@@ -50,6 +50,8 @@ let player;
 let targetbox;
 
 options = {
+    isPlayingBgm: true,
+    isReplayEnabled: true,
     viewSize: { x: G.WIDTH, y: G.HEIGHT },
 };
 
@@ -84,9 +86,6 @@ function update() {
     color('red');
     char(A, player.pos);
 
-    text(player.pos.x.toString(), 3, 10);
-    text(targetbox.pos.x.toString(), 3, 20);
-
     if ( (player.isGoingRight == true) && (input.isPressed) && (isPressing) ){
         player.pos.x += player.speed;
     }
@@ -113,7 +112,6 @@ function update() {
         }
     }
     else if ( (player.isGoingRight == false && player.isGoingUp == false) ){
-        text('Tap to reset', 20, 60);
         end();
     }
     
