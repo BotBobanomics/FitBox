@@ -59,8 +59,8 @@ let isPressing;
 
 function update() {
     if (!ticks){
-        const posX =  rnd(30, G.WIDTH - 10);
-        const posY =  rnd(30, G.HEIGHT - 10);
+        const posX =  rndi(30, G.WIDTH - 10);
+        const posY =  rndi(30, G.HEIGHT - 10);
         isPressing = false;
         targetbox = {
             pos: vec(posX, posY)
