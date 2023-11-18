@@ -66,7 +66,7 @@ function update() {
 
         player = {
             pos: vec(5 , G.HEIGHT - 5),
-            speed: 0.5,
+            speed: rnd(G.PLAYER_SPEED_MIN, G.PLAYER_SPEED_MAX),
             isGoingRight: true,
             isGoingUp: false
         }
@@ -108,6 +108,7 @@ function update() {
             const posY =  rnd(10, G.HEIGHT - 10);
             targetbox.pos = vec(posX, posY);
             player.pos = vec(5 , G.HEIGHT - 5);
+            player.speed = rnd(G.PLAYER_SPEED_MIN, G.PLAYER_SPEED_MAX);
             addScore(10);
         }
     }
