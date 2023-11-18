@@ -15,6 +15,14 @@ rrrrrr
 rrrrrr
  rrrr
 `,
+`
+ l  l
+
+llllll
+l    l
+l    l
+ llll
+`
 ];
 
 const G = {
@@ -59,6 +67,7 @@ let isPressing;
 
 function update() {
     if (!ticks){
+
         const posX =  rndi(30, G.WIDTH - 10);
         const posY =  rndi(30, G.HEIGHT - 10);
         isPressing = false;
@@ -73,6 +82,18 @@ function update() {
             isGoingUp: false
         }
     }
+
+    color('light_green');
+    rect(0, 0, G.WIDTH, 1); // Top border
+    rect(0, 0, 1, 99); // left border
+    rect(G.WIDTH - 1, 0, 1, G.HEIGHT); // right border
+    rect(0, G.HEIGHT - 1, G.WIDTH, 1); // floor border
+
+    color('light_yellow');
+    text("WIN A PRIZE?", 20, 10);
+
+    color('black');
+    char('b', 10, 10);
 
     if (input.isJustPressed){
         isPressing = true;
