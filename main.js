@@ -102,6 +102,7 @@ function update() {
         let diffx = abs(player.pos.x - targetbox.pos.x);
         let diffy = abs(player.pos.y - targetbox.pos.y);
         if ( (diffx <= 2 && diffx >= 0) && (diffy <= 2 && diffy >= 0) && (!input.isPressed) ){
+            play("laser");
             player.isGoingRight = true;
             const posX =  rnd(10, G.WIDTH - 10);
             const posY =  rnd(10, G.HEIGHT - 10);
