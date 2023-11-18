@@ -21,7 +21,7 @@ const G = {
     WIDTH: 100,
     HEIGHT: 100,
     PLAYER_SPEED_MIN: 0.3,
-    PLAYER_SPEED_MAX: 1,
+    PLAYER_SPEED_MAX: 0.8,
 };
   
 /**
